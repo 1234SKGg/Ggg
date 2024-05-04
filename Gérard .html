@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Affordable and professional web design">
+  <meta name="keywords" content="web design, affordable web design, professional web design">
+  <meta name="author" content="Brad Traversy">
+  <title>LUCKY JET SIGNALS| Services</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="icon" href="img/favicon.png">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-image: url('arriol.png');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      position: relative;
+    }
+    form {
+      width: 60%;
+      margin-top: 20px;
+    }
+   .circle {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 8px solid transparent;
+  border-top-color: green;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: spin 2s linear infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.5); /* Couleur de fond semi-transparente */
+}
+
+    @keyframes spin {
+      0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+        color: green;
+      }
+      50% {
+        color: white;
+      }
+      100% {
+        color: indigo;
+        transform: translate(-50%, -50%) rotate(360deg);
+      }
+    }
+    .title {
+      text-align: center;
+      font-size: 36px;
+      font-weight: bold;
+    }
+
+    @keyframes blink {
+      0% {
+        color: black;
+      }
+      50% {
+        color: white;
+      }
+      100% {
+        color: black;
+      }
+    }
+
+    button.blinking {
+      animation: blink 1s infinite;
+    }
+  </style>
+</head>
+<body>
+<h1 style="text-align: center; vertical-align: top;"></h1> <!-- Modification du titre en haut de l'interface -->
+<section id="newsletter">
+  <div class="container">
+    <div class="title" style="animation: colorchange 10s infinite;"></div>
+    <form>
+    </form>
+  </div>
+</section>
+<section id="main">
+  <div class="container">
+    <!-- Contenu principal de la page -->
+    <div class="circle"></div>
+    <button onclick="generateRandomCoefficient()" class="blinking" style="position: absolute; bottom: 50px; left: 35%;">NEXT ROUND</button>
+<button onclick="startLoading()" class="blinking" style="position: absolute; bottom: 0px; left: 0%;">▶️SON</button>
+
+<audio id="audio" src="Lucky.m4a" loop></audio>
+
+<script>
+function generateRandomCoefficient() {
+    var coefficient = (Math.random() * (5.10 - 1.05) + 1.05).toFixed(2);
+      
+  // Créez un nouvel élément span pour afficher le coefficient
+    var coefficientElement = document.createElement('span');
+    coefficientElement.textContent =  + coefficient + " x";
+    
+    // Ajoutez la classe pour le style
+    coefficientElement.classList.add('coefficient');
+    
+    // Ajoutez du style CSS
+    coefficientElement.style.color = "black"; // Couleur noire
+    coefficientElement.style.fontSize = "3em"; // Taille de police augmentée
+    coefficientElement.style.position = "absolute"; // Pour rester fixe par rapport au cercle
+    coefficientElement.style.top = "50%";
+    coefficientElement.style.left = "50%";
+    coefficientElement.style.transform = "translate(-50%, -50%)"; // Positionnement au centre
+    
+    
+}
+function startLoading() {
+    var audio = document.getElementById("audio");
+    audio.play();
+}
+</script>
+  </div>
+</section>
+</body>
+</html>
+
